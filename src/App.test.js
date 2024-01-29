@@ -16,14 +16,17 @@ jest.mock('./utils');
 
 const mockData = [
   {
-    id: 'Pudding',
+    id: '998',
     label: 'Pudding',
+    category: 'pudding',
+    image: 'https://i.imgur.com/test-1.jpg',
     price: 15,
   },
   {
-    id: 'Chocolate',
+    id: '999',
     label: 'Chocolate',
-    category: 'category',
+    category: 'cake',
+    image: 'https://i.imgur.com/test-2.jpg',
     price: 60,
   },
 ];

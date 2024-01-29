@@ -3,25 +3,28 @@ import { Provider } from 'react-redux';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
-import Payment  from './Payment';
+import Payment from './Payment';
 import { createReduxStore, ACTIONS } from './redux';
 
 const mockData = [
   {
-    id: 'Pudding',
+    id: '998',
     label: 'Pudding',
+    category: 'pudding',
+    image: 'https://i.imgur.com/test-1.jpg',
     price: 15,
   },
   {
-    id: 'Chocolate',
+    id: '999',
     label: 'Chocolate',
     category: 'cake',
+    image: 'https://i.imgur.com/test-2.jpg',
     price: 60,
   },
 ];
 
 describe('Test Payment', () => {
-  const cartIds = ['Pudding', 'Chocolate'];
+  const cartIds = ['998', '999'];
 
   function renderPayment(store = createReduxStore(), props = {}) {
     return render(
@@ -59,14 +62,14 @@ describe('Test Payment', () => {
     });
   };
 
-  test('payment footer shows cart price when items present in cart', () => {
+  test('submit order button should show cart total price when items present in cart', () => {
     const store = createReduxStore();
     addItemsInStore(store);
     renderPayment(store);
 
-    expect(
-      screen.getByRole('link', { name: /送出訂單/i })
-    ).toHaveTextContent('送出訂單 ($75)');
+    expect(screen.getByRole('link', { name: /送出訂單/i })).toHaveTextContent(
+      '送出訂單 ($75)'
+    );
 
     resetMenu(store);
     expect(screen.queryByRole('link', { name: /送出訂單/i })).toBe(null);
