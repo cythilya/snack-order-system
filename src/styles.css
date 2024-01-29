@@ -1,0 +1,142 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+.snack-app {
+  font-family: sans-serif;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  min-height: 100vh;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 100px;
+  background-color: #F5EBE0;
+}
+
+.snack-app > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.snack-app > footer {
+  position: fixed;
+  bottom: 0;
+  padding: 30px 5px;
+  width: 100%;
+}
+
+.menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.menu-item {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  text-align: left;
+  background: #E3D5CA;
+}
+
+.menu-item:hover{
+  background: #E3D5CA;
+}
+
+.menu-item-title {
+  display: flex;
+  gap: 5px;
+  padding: 5px 0;
+  color: #222;
+  font-size: 16px;
+  align-items: center;
+  width: 200px;
+}
+
+.menu-header {
+  display: flex;
+  gap: 20px;
+}
+
+.menu-item-description {
+  color: #555;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.menu-btn-add {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+  background: #D5BDAF;
+  border: 1px solid #D5BDAF;
+  border-radius: 4px;
+  padding: 5px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #111;
+}
+
+.menu-btn-group {
+  display: flex;
+  border: 1px solid #718096;
+  border-radius: 4px;
+}
+
+.menu-btn-item {
+  background-color: transparent;
+  border: none;
+  font-size: 14px;
+}
+
+.menu-item-qty {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
+  user-select: none;
+}
+
+.snack-app-pay-btn {
+  display: block;
+  text-decoration: none;
+  width: 100%;
+  font-size: 14px;
+  border: none;
+  background-color: #ef8354;
+  color: #fff;
+  padding: 10px 0;
+  border-radius: 6px;
+  font-weight: lighter;
+}
+
+.icon-plus, .icon-minus {
+  display: block;
+}

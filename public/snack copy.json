@@ -1,0 +1,100 @@
+[
+  {
+    "id": "1",
+    "label": "綜合水果千層蛋糕",
+    "image": "綜合水果千層蛋糕.jpeg",
+    "category": "cake",
+    "price": 250
+  },
+  {
+    "id": "2",
+    "label": "綜合水果海棉蛋糕",
+    "image": "綜合水果海棉蛋糕.jpeg",
+    "category": "cake",
+    "price": 120
+  },
+  {
+    "id": "3",
+    "label": "抹茶千層蛋糕",
+    "image": "抹茶千層蛋糕.jpeg",
+    "category": "cake",
+    "price": 280
+  },
+  {
+    "id": "4",
+    "label": "海鹽奶油捲",
+    "image": "海鹽奶油捲.jpeg",
+    "category": "bread",
+    "price": 60
+  },
+  {
+    "id": "5",
+    "label": "無花果草莓抹茶蛋糕",
+    "image": "無花果草莓抹茶蛋糕.jpeg",
+    "category": "cake",
+    "price": 260
+  },
+  {
+    "id": "6",
+    "label": "抹茶紅豆冰淇淋鬆餅",
+    "image": "抹茶紅豆冰淇淋鬆餅.jpeg",
+    "category": "waffle",
+    "price": 300
+  },
+  {
+    "id": "7",
+    "label": "草莓雪花冰",
+    "image": "草莓雪花冰.jpeg",
+    "category": "ice",
+    "price": 150
+  },
+  {
+    "id": "8",
+    "label": "焦糖烤布蕾",
+    "image": "焦糖烤布蕾.jpeg",
+    "category": "pudding",
+    "price": 100
+  },
+  {
+    "id": "9",
+    "label": "西瓜刨冰",
+    "image": "西瓜刨冰.jpeg",
+    "category": "ice",
+    "price": 180
+  },
+  {
+    "id": "10",
+    "label": "核桃巧克力蛋糕",
+    "image": "核桃巧克力蛋糕.jpeg",
+    "category": "cake",
+    "price": 300
+  },
+  {
+    "id": "11",
+    "label": "巧克力奶油捲",
+    "image": "巧克力奶油捲.jpeg",
+    "category": "cake",
+    "price": 240
+  },
+  {
+    "id": "12",
+    "label": "乳酪蛋糕",
+    "image": "乳酪蛋糕.jpeg",
+    "category": "cake",
+    "price": 220
+  },
+  {
+    "id": "13",
+    "label": "莓果冰淇淋",
+    "image": "莓果冰淇淋.jpeg",
+    "category": "ice",
+    "price": 260
+  },
+  {
+    "id": "14",
+    "label": "金磚乳酪蛋糕",
+    "image": "金磚乳酪蛋糕.jpeg",
+    "category": "cake",
+    "price": 350
+  }
+]
