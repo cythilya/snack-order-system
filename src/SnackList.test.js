@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
-import { Payment } from './Comps';
+import Payment  from './Payment';
 import { createReduxStore, ACTIONS } from './redux';
 
 const mockData = [
@@ -65,10 +65,10 @@ describe('Test Payment', () => {
     renderPayment(store);
 
     expect(
-      screen.getByRole('link', { name: /Pay for snacks/i })
-    ).toHaveTextContent('Pay for snacks ($75)');
+      screen.getByRole('link', { name: /送出訂單/i })
+    ).toHaveTextContent('送出訂單 ($75)');
 
     resetMenu(store);
-    expect(screen.queryByRole('link', { name: /Pay for snacks/i })).toBe(null);
+    expect(screen.queryByRole('link', { name: /送出訂單/i })).toBe(null);
   });
 });

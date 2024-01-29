@@ -9,14 +9,14 @@ describe('Food Cart', () => {
     // show menu
     cy.findByText(/Sausage McMuffin/i).should('be.visible');
     cy.findByText(/Mushroom Pizza/i).should('be.visible');
-    cy.findByRole('link', { name: /Pay for snacks/i }).should('not.be.visible');
+    cy.findByRole('link', { name: /送出訂單/i }).should('not.be.visible');
 
     // add Sausage to cart once
     cy.findByRole('button', { name: /Add Sausage McMuffin to cart/i }).click();
 
     // check that the quantity of Sausage & cart price is shown.
     cy.findByRole('status').should('contain', 1);
-    cy.findByRole('link', { name: /Pay for snacks/i }).should('contain', 'Pay for snacks ($12)');
+    cy.findByRole('link', { name: /送出訂單/i }).should('contain', '送出訂單 ($12)');
 
     // add more items to cart
     cy.findByRole('button', { name: /Add Mushroom Pizza to cart/i }).click();
@@ -24,7 +24,7 @@ describe('Food Cart', () => {
 
     // check the quantity of Pizza is shown & cart price is updated
     cy.findAllByRole('status').eq(1).should('contain', 2);
-    cy.findByRole('link', { name: /Pay for snacks/i }).should('contain', 'Pay for snacks ($52)');
+    cy.findByRole('link', { name: /送出訂單/i }).should('contain', '送出訂單 ($52)');
 
     // remove Pizza from cart
     cy.findByRole('button', { name: /Remove Mushroom Pizza from cart/i }).click();
@@ -32,7 +32,7 @@ describe('Food Cart', () => {
     // on removing an item, show the updated quantities & price.
     cy.findAllByRole('status').eq(0).should('contain', 1);
     cy.findAllByRole('status').eq(1).should('contain', 1);
-    cy.findByRole('link', { name: /Pay for snacks/i }).should('contain', 'Pay for snacks ($32)');
+    cy.findByRole('link', { name: /送出訂單/i }).should('contain', '送出訂單 ($32)');
   });
 
   it('only show veg food when veg filter is applied', () => {

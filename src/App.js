@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { shallowEqual, useSelector, useDispatch } from 'react-redux';
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { ACTIONS } from './redux';
-import { SnackList, Message, Payment } from './Comps';
+import SnackList from './SnackList';
+import Message from './Message';
+import Payment from './Payment';
 import Menu from './Menu';
 import { loadSnackData } from './utils';
 

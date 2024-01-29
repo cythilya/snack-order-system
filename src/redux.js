@@ -95,7 +95,6 @@ function foodReducer(state = initialState, action) {
     case 'SUBMIT_ORDER': {
       const { orderStatus } = action.payload;
       const newOrderStatus = orderStatus;
-      console.log('newOrderStatus', newOrderStatus)
 
       return {
         ...state,

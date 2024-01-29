@@ -49,7 +49,7 @@ describe('Test App', () => {
     renderApp();
 
     // during loading, show app name and loading indicator
-    expect(screen.getByRole('heading')).toHaveTextContent('Select Snacks!');
+    expect(screen.getByRole('heading')).toHaveTextContent('夏天有點甜 點餐系統');
     expect(screen.getByRole('status')).toHaveTextContent('Loading...');
 
     await waitForElementToBeRemoved(() => screen.getByText(/Loading/i));
@@ -62,7 +62,7 @@ describe('Test App', () => {
     // on success, show menu
     expect(screen.getByText(/Pudding/i)).toBeInTheDocument();
     expect(screen.getByText(/Chocolate/i)).toBeInTheDocument();
-    expect(screen.queryByRole('link', { name: /Pay for snacks/i })).toBe(null);
+    expect(screen.queryByRole('link', { name: /送出訂單/i })).toBe(null);
 
     // add Pudding to cart once
     fireEvent.click(
@@ -72,8 +72,8 @@ describe('Test App', () => {
     // check that the quantity of Sausage & cart price is shown.
     expect(screen.getByRole('status')).toHaveTextContent(1);
     expect(
-      screen.getByRole('link', { name: /Pay for snacks/i })
-    ).toHaveTextContent('Pay for snacks ($15)');
+      screen.getByRole('link', { name: /送出訂單/i })
+    ).toHaveTextContent('送出訂單 ($15)');
 
     // add more items to cart
     fireEvent.click(
@@ -86,8 +86,8 @@ describe('Test App', () => {
     // check the quantity of Chocolate is shown & cart price is updated
     expect(screen.getAllByRole('status')[1]).toHaveTextContent(2);
     expect(
-      screen.getByRole('link', { name: /Pay for snacks/i })
-    ).toHaveTextContent('Pay for snacks ($135)');
+      screen.getByRole('link', { name: /送出訂單/i })
+    ).toHaveTextContent('送出訂單 ($135)');
 
     // remove Chocolate from cart
     fireEvent.click(
@@ -98,8 +98,8 @@ describe('Test App', () => {
     expect(screen.getAllByRole('status')[0]).toHaveTextContent(1);
     expect(screen.getAllByRole('status')[1]).toHaveTextContent(1);
     expect(
-      screen.getByRole('link', { name: /Pay for snacks/i })
-    ).toHaveTextContent('Pay for snacks ($75)');
+      screen.getByRole('link', { name: /送出訂單/i })
+    ).toHaveTextContent('送出訂單 ($75)');
   });
 
   test('only show ice when category filter is applied', async () => {

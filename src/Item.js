@@ -67,12 +67,16 @@ export function Item(props) {
 
   return (
     <li className="menu-item">
-      <div className="menu-header" >
+      <div className="menu-header">
         <div className="menu-item-title">
           <div>{item.label}</div>
           <span>(${item.price})</span>
         </div>
-        <img src={process.env.PUBLIC_URL + `/images/${item.image}`} width="60" height="60" />
+        <img
+          src={process.env.PUBLIC_URL + `/images/${item.image}`}
+          width="60"
+          height="60"
+        />
       </div>
       {quantity === 0 ? (
         addBtn
@@ -87,94 +91,7 @@ export function Item(props) {
   );
 }
 
-function PureSnackList(props) {
-  console.log('SnackList Re-Render');
-  const { list } = props;
-  return (
-    <ul className="menu-list">
-      {list.map((item) => (
-        <Item key={item.id} item={item} />
-      ))}
-    </ul>
-  );
-}
-
-export const SnackList = React.memo(PureSnackList);
-
-export function Message(props) {
-  const { status } = props;
-
-  const messages = {
-    loading: 'Loading...',
-    error: (
-      <>
-        Menu failed to load.
-        <br />
-        Please try again...
-      </>
-    ),
-  };
-
-  const messageText = messages[status];
-
-  if (!messageText) {
-    return null;
-  }
-
-  return (
-    <div
-      className={`message-${status}`}
-      role={status === 'error' ? 'alert' : 'status'}
-      aria-live="polite"
-      aria-busy={status === 'loading'}
-    >
-      {messageText}
-    </div>
-  );
-}
-
-function selectorCartPrice(state) {
-  const { cartByIds, menuById } = state;
-  let cartPrice = 0;
-
-  const cartKeys = Object.keys(cartByIds);
-  cartKeys.forEach((id) => {
-    const item = menuById[id];
-    const cartItem = cartByIds[id];
-
-    const price = cartItem.quantity * item.price;
-    cartPrice += price;
-  });
-
-  return cartPrice;
-}
-
-
-export function Payment() {
-  const dispatch = useDispatch();
-  const cartPrice = useSelector(selectorCartPrice);
-
-  function submitOrder() {
-    dispatch({
-      type: ACTIONS.SUBMIT_ORDER,
-      payload: {orderStatus: 'done'}
-    });
-  }
-  return (
-    <footer>
-      {cartPrice > 0 && (
-        <a href="#payment" className="snack-app-pay-btn" aria-live="polite"
-        onClick={submitOrder}
-
-        >
-          送出訂單 (${cartPrice})
-        </a>
-      )}
-    </footer>
-  );
-}
-
-
+export default Item;
 
 // source- https://feathericons.com/
 export function IconPlus() {
