@@ -79,6 +79,16 @@ ol {
   width: 200px;
 }
 
+@media (max-width:400px) {
+  .menu-item-title  {
+    display: block;
+    width: 100px;
+  }
+  .menu-item-price{
+    display: block;
+  }
+}
+
 .menu-header {
   display: flex;
   gap: 20px;

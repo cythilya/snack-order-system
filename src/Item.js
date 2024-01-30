@@ -33,16 +33,18 @@ export function Item(props) {
     <button
       aria-label={`Add ${item.label} to cart`}
       className="menu-btn-add"
+      data-testid="add-to-cart"
       onClick={handleIncrement}
     >
       <IconPlus />
     </button>
   );
 
-  const increaseBtn = (
+  const incrementButton = (
     <button
       aria-label={`Add ${item.label} to cart`}
       className="menu-btn-item"
+      data-testid="increment-button"
       onClick={handleIncrement}
     >
       <IconPlus />
@@ -60,7 +62,7 @@ export function Item(props) {
   );
 
   const qtyIndicator = (
-    <div className="menu-item-qty" role="status" aria-live="polite">
+    <div data-testid="item-quantity" className="menu-item-qty" role="status" aria-live="polite">
       {quantity}
     </div>
   );
@@ -70,7 +72,7 @@ export function Item(props) {
       <div className="menu-header">
         <div className="menu-item-title">
           <div>{item.label}</div>
-          <span>(${item.price})</span>
+          <span className="menu-item-price">(${item.price})</span>
         </div>
         <img
           src={process.env.PUBLIC_URL + `/images/${item.image}`}
@@ -84,7 +86,7 @@ export function Item(props) {
         <div className="menu-btn-group">
           {decreaseBtn}
           {qtyIndicator}
-          {increaseBtn}
+          {incrementButton}
         </div>
       )}
     </li>

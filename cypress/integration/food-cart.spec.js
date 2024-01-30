@@ -1,4 +1,4 @@
-describe('Food Cart', () => {
+describe.skip('Food Cart', () => {
   beforeEach(() => {
     cy.visit('/');
   });

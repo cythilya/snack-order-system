@@ -1,0 +1,16 @@
+[
+  {
+    "id": "3",
+    "label": "Matcha layer cake",
+    "image": "抹茶千層蛋糕.jpeg",
+    "category": "cake",
+    "price": 280
+  },
+  {
+    "id": "5",
+    "label": "Fig Strawberry Matcha Cake",
+    "image": "無花果草莓抹茶蛋糕.jpeg",
+    "category": "cake",
+    "price": 260
+  }
+]

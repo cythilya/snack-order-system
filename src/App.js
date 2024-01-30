@@ -29,6 +29,7 @@ export default function App() {
     <div className="snack-app">
       <header>
         <h1>夏天有點甜 點餐系統</h1>
+        {/* <h1>Summer's Sweets Order System</h1> */}
         <Menu category={category} selectMenu={selectMenu} />
       </header>
       {

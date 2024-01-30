@@ -9,6 +9,7 @@ const Menu = ({ category, selectMenu }) => {
         checked={category === 'ice'}
         onChange={selectMenu}
       />
+      {/* Ice Only */}
       冰品 Only
     </label>
   );
