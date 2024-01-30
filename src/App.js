@@ -21,7 +21,7 @@ export default function App() {
 
   function selectMenu() {
     dispatch({
-      type: ACTIONS.CHANGE_SNACKS,
+      type: ACTIONS.CHANGE_CATEGORY,
     });
   }
 

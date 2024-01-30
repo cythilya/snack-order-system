@@ -28,13 +28,13 @@ export function Payment() {
   }
 
   function selectorCartPrice(state) {
-    const { cartByIds, menuById } = state;
+    const { cart, menuById } = state;
     let cartPrice = 0;
 
-    const cartKeys = Object.keys(cartByIds);
+    const cartKeys = Object.keys(cart);
     cartKeys.forEach((id) => {
       const item = menuById[id];
-      const cartItem = cartByIds[id];
+      const cartItem = cart[id];
 
       const price = cartItem.quantity * item.price;
       cartPrice += price;

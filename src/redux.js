@@ -1,7 +1,7 @@
 import { createStore } from 'redux';
 
 export const ACTIONS = {
-  CHANGE_SNACKS: 'CHANGE_SNACKS',
+  CHANGE_CATEGORY: 'CHANGE_CATEGORY',
   LOAD_SNACKS: 'LOAD_SNACKS',
   ADD_TO_CART: 'ADD_TO_CART',
   REMOVE_FROM_CART: 'REMOVE_FROM_CART',
@@ -15,20 +15,20 @@ const initialState = {
     all: [],
     ice: [],
   },
-  cartByIds: {},
+  cart: {},
   orderStatus: 'idle',
 };
 
-function foodReducer(state = initialState, action) {
+export const snackReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ACTIONS.CHANGE_SNACKS: {
+    case ACTIONS.CHANGE_CATEGORY: {
       const { category } = state;
       const newCategory = category === 'all' ? 'ice' : 'all';
 
       return {
         ...state,
         category: newCategory,
-        cartByIds: {},
+        cart: {},
       };
     }
     case ACTIONS.LOAD_SNACKS: {
@@ -39,7 +39,9 @@ function foodReducer(state = initialState, action) {
         menuById[item.id] = item;
       });
       const allMenuId = menu.map((item) => item.id);
-      const categoryMenuId = menu.filter((item) => item.category === 'ice').map((item) => item.id);
+      const categoryMenuId = menu
+        .filter((item) => item.category === 'ice')
+        .map((item) => item.id);
 
       return {
         ...state,
@@ -52,29 +54,26 @@ function foodReducer(state = initialState, action) {
     }
     case ACTIONS.ADD_TO_CART: {
       const { itemId } = action.payload;
-      const { cartByIds } = state;
+      const { cart } = state;
 
-      const cartItem = cartByIds[itemId] || {
-        quantity: 0,
-      };
-
+      const cartItem = cart[itemId] || { quantity: 0 };
       cartItem.quantity += 1;
 
       const newCart = {
-        ...cartByIds,
+        ...cart,
         [itemId]: cartItem,
       };
 
       return {
         ...state,
-        cartByIds: newCart,
+        cart: newCart,
       };
     }
     case ACTIONS.REMOVE_FROM_CART: {
       const { itemId } = action.payload;
-      const { cartByIds } = state;
+      const { cart } = state;
 
-      const cartItem = cartByIds[itemId];
+      const cartItem = cart[itemId];
 
       if (!cartItem) {
         return state;
@@ -83,13 +82,13 @@ function foodReducer(state = initialState, action) {
       cartItem.quantity -= 1;
 
       const newCart = {
-        ...cartByIds,
+        ...cart,
         [itemId]: cartItem,
       };
 
       return {
         ...state,
-        cartByIds: newCart,
+        cart: newCart,
       };
     }
     case 'SUBMIT_ORDER': {
@@ -104,11 +103,11 @@ function foodReducer(state = initialState, action) {
     default:
       return state;
   }
-}
+};
 
 const enableReduxDevTools = window.__REDUX_DEVTOOLS_EXTENSION__?.();
 
 export function createReduxStore() {
-  const store = createStore(foodReducer, enableReduxDevTools);
+  const store = createStore(snackReducer, enableReduxDevTools);
   return store;
 }

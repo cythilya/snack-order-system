@@ -6,10 +6,10 @@ import { ACTIONS } from './redux';
 export function Item(props) {
   const { item } = props;
 
-  const cartByIds = useSelector((state) => state.cartByIds);
+  const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
-  const quantity = cartByIds[item.id]?.quantity ?? 0;
+  const quantity = cart[item.id]?.quantity ?? 0;
 
   function handleIncrement() {
     dispatch({
