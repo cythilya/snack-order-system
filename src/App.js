@@ -28,7 +28,7 @@ export default function App() {
   return (
     <div className="snack-app">
       <header>
-        <h1>夏天有點甜 點餐系統</h1>
+        <h1 className="font-semibold text-slate-900 text-4xl">夏天有點甜 點餐系統</h1>
         {/* <h1>Summer's Sweets Order System</h1> */}
         <Menu category={category} selectMenu={selectMenu} />
       </header>
