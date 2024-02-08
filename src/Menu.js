@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 const Menu = ({ category, selectMenu }) => {
   return (
     <label>
       <input
-        type="checkbox"
-        name="veg-checkbox"
-        value={category}
         checked={category === 'ice'}
+        name="veg-checkbox"
+        type="checkbox"
+        value={category}
         onChange={selectMenu}
       />
       {/* Ice Only */}

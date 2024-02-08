@@ -1,33 +1,25 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-
+import { useDispatch, useSelector } from 'react-redux';
 import { ACTIONS } from './redux';
 
-export function Item(props) {
-  const { item } = props;
-
-  const cart = useSelector((state) => state.cart);
+const Item = ({ item }) => {
   const dispatch = useDispatch();
-
+  const cart = useSelector((state) => state.cart);
   const quantity = cart[item.id]?.quantity ?? 0;
 
-  function handleIncrement() {
+  const handleIncrement = () => {
     dispatch({
       type: ACTIONS.ADD_TO_CART,
-      payload: {
-        itemId: item.id,
-      },
+      payload: { itemId: item.id },
     });
-  }
+  };
 
-  function handleDecrement() {
+  const handleDecrement = () => {
     dispatch({
       type: ACTIONS.REMOVE_FROM_CART,
-      payload: {
-        itemId: item.id,
-      },
+      payload: { itemId: item.id },
     });
-  }
+  };
 
   const addBtn = (
     <button
@@ -62,7 +54,12 @@ export function Item(props) {
   );
 
   const qtyIndicator = (
-    <div data-testid="item-quantity" className="menu-item-qty" role="status" aria-live="polite">
+    <div
+      data-testid="item-quantity"
+      className="menu-item-qty"
+      role="status"
+      aria-live="polite"
+    >
       {quantity}
     </div>
   );
@@ -75,9 +72,10 @@ export function Item(props) {
           <span className="menu-item-price">(${item.price})</span>
         </div>
         <img
+          alt={item.label}
+          height="60"
           src={process.env.PUBLIC_URL + `/images/${item.image}`}
           width="60"
-          height="60"
         />
       </div>
       {quantity === 0 ? (
@@ -91,7 +89,7 @@ export function Item(props) {
       )}
     </li>
   );
-}
+};
 
 export default Item;
 

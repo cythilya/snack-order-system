@@ -1,12 +1,9 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 import Item from './Item';
 
-import { ACTIONS } from './redux';
-
-function PureSnackList(props) {
+const PureSnackList = ({ list }) => {
   console.log('SnackList Re-Render');
-  const { list } = props;
+
   return (
     <ul className="menu-list">
       {list.map((item) => (
@@ -14,7 +11,6 @@ function PureSnackList(props) {
       ))}
     </ul>
   );
-}
+};
 
 export default React.memo(PureSnackList);
-
